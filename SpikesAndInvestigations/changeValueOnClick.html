@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="test" onclick=testFunction()>
+            Test01
+        </div>
+
+        <button type="button" onclick=testReset()>Click To Reset</button>
+
+        <script>
+            function testFunction() {
+                document.getElementById("test").innerHTML = "Success";
+            }
+
+            function testReset() {
+                document.getElementById("test").innerHTML = "Test01";
+            }
+        </script>
+    </body>
+</html>
