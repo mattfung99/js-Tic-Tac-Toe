@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+            <title>
+                // Test 02 //
+            </title>
+
+            <style>
+                body, html {
+                    min-width: 510px;
+                }
+
+                #display-counter {
+                    position: relative;
+                }
+
+                .div-container {
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .flex-container {
+                    align-items: center;
+                    display: flex;
+                    flex-wrap: wrap;
+                    height: 151px;
+                    justify-content: space-around;
+                    margin: 10px auto 0 auto;
+                    max-width: 510px;
+                }
+
+                .square-details {
+                    background: beige;
+                    height: 150px;
+                    margin-bottom: 20px;
+                    width: 150px;
+                    text-align: center;
+                    width: 150px;
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="flex-container">
+                <div class="square-details" onclick=mouseClickCounter()></div>
+                <div class="square-details" onclick=mouseClickCounter()></div>
+                <div class="square-details" onclick=mouseClickCounter()></div>           
+                <div class="square-details" onclick=mouseClickCounter()></div>
+                <div class="square-details" onclick=mouseClickCounter()></div>
+                <div class="square-details" onclick=mouseClickCounter()></div>
+                <div class="square-details" onclick=mouseClickCounter()></div>
+                <div class="square-details" onclick=mouseClickCounter()></div>
+                <div class="square-details" onclick=mouseClickCounter()></div>
+
+                <div class="div-container">
+                    <p id="display-counter">0</p>
+                </div>
+            </div>
+
+            <script>
+                var counter = 0;
+
+                function mouseClickCounter() {
+                    counter++;
+                    document.getElementById("display-counter").innerHTML = counter;
+                }
+            </script>
+        </body>
+    </html>

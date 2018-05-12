@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <div id="test" onclick=testFunction()>
-            Test01
-        </div>
+    <html lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>
+            // Test 01 //
+        </title>
 
-        <button type="button" onclick=testReset()>Click To Reset</button>
+        <body>
+            <div id="test" onclick=testFunction()>
+                Test01
+            </div>
 
-        <script>
-            function testFunction() {
-                document.getElementById("test").innerHTML = "Success";
-            }
+            <button type="button" onclick=testReset()>Click To Reset</button>
 
-            function testReset() {
-                document.getElementById("test").innerHTML = "Test01";
-            }
-        </script>
-    </body>
-</html>
+            <script>
+                function testFunction() {
+                    document.getElementById("test").innerHTML = "Success";
+                }
+
+                function testReset() {
+                    document.getElementById("test").innerHTML = "Test01";
+                }
+            </script>
+        </body>
+    </html>
