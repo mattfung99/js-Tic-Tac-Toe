@@ -169,3 +169,8 @@ function generateCounterDisplay() {
     counterDisplayWin.innerHTML = "N/A";
     document.getElementById("div-container").appendChild(counterDisplayWin);
 }
+
+function mouseClickCounter() {
+    counterForXO++;
+    document.getElementById("display-counter").innerHTML = counterForXO;
+}
