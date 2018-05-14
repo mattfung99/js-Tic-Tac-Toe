@@ -5,7 +5,9 @@
   * For Gamepage
   *
   * - body, html
+  * - canvas-container
   * - display-counter
+  * - display-win
   * - div-container
   * - flex-container
   * - square-details
@@ -17,8 +19,50 @@ body, html {
     min-width: 510px;
 }
 
+#canvas-container {
+    text-align: center;
+    width: 100%;
+}
+
 #display-counter {
     position: relative;
+}
+
+/* .display-score-row-1 {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto 0 auto;
+    max-width: 510px;
+}
+
+.display-score-row-2 {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto 0 auto;
+    max-width: 510px;
+}
+
+.display-score-row-3 {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto 0 auto;
+    max-width: 510px;
+} */
+
+#display-win {
+    background: black;
+    border: 2px solid grey;
+    display: inline-block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    height: 25px;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    width: 510px;
 }
 
 #div-container {

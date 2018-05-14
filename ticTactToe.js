@@ -2,9 +2,10 @@
                     // ***** GLOBAL VARIABLES ***** //
 // ***** ------------------------ **** ------------------------ ***** //
 
-var attachClass,
+var attachClassFC,
     boxesClicked = 0,
     counterForXO = 0,
+    displayScore,
     flexContainer,
     idTracker = [],
     numberOfBoxes = 9;
@@ -31,24 +32,27 @@ var trackerX = [
     xDiagonal357 = 0,
 ];
 
+var titleCanvas = document.getElementById("canvas-title"),
+    ctxCanvasTitle = titleCanvas.getContext("2d");
+
 // ***** ------------------------ **** ------------------------ ***** //
                     // *********** CODE *********** //
 // ***** ------------------------ **** ------------------------ ***** //
 
-flexContainer = document.getElementsByTagName("div")[0];
-attachClass = document.createAttribute("class");
-attachClass.value = "flex-container";
-flexContainer.setAttributeNode(attachClass);
+flexContainer = document.getElementsByTagName("div")[2];
+attachClassFC = document.createAttribute("class");
+attachClassFC.value = "flex-container";
+flexContainer.setAttributeNode(attachClassFC);
 
 // ***** ------------------------ **** ------------------------ ***** //
                     // ****** Creating Boxes ****** //
 // ***** ------------------------ **** ------------------------ ***** //
 
-function createBoxes() {
+function createWebpage() {
     for (var i = 1; i <= numberOfBoxes; i++) {
         generateBoxes();
     }
-    generateCounterDisplay();
+    generateScoreboard();
 }
 
 // ***** ------------------------ **** ------------------------ ***** //
@@ -58,7 +62,7 @@ function createBoxes() {
 function generateBoxes() {
     var box = document.createElement("button");
     box.id = "box" + parseInt(idTracker.length + 1);
-    box.style = "background: beige; cursor: pointer; height: 150px; margin-bottom: 20px; outline: 0; text-align: center; width: 150px";
+    box.style = "background: beige; cursor: pointer; font-size: 50px; height: 150px; margin-bottom: 20px; outline: 0; text-align: center; width: 150px";
     box.addEventListener("click", function () {
         mouseClickCounter();
         // console.log(box.id);
@@ -67,7 +71,6 @@ function generateBoxes() {
                 document.getElementById(box.id).innerHTML = "X";
                 document.getElementById(box.id).disabled = true;
                 boxesClicked++;
-                // console.log("Number of Boxes Clicked " + boxesClicked);
                 switch (box.id) {
                     case "box1":
                         trackerX[0]++;
@@ -120,7 +123,6 @@ function generateBoxes() {
                 document.getElementById(box.id).innerHTML = "O";
                 document.getElementById(box.id).disabled = true;
                 boxesClicked++;
-                // console.log("Number of Boxes Clicked " + boxesClicked);
                 switch (box.id) {
                     case "box1":
                         trackerO[0]++;
@@ -179,21 +181,21 @@ function generateBoxes() {
                     // *** Generating Scoreboard ** //
 // ***** ------------------------ **** ------------------------ ***** //
 
-function generateCounterDisplay() {
-    var counterDisplayDiv = document.createElement("div");
-    var counterDisplayLine = document.createElement("p");
+function generateScoreboard() {
     var counterDisplayWin = document.createElement("p");
-
-    counterDisplayDiv.id = "div-container";
-    document.getElementById("flex-container").appendChild(counterDisplayDiv);
-
-    counterDisplayLine.id = "display-counter";
-    counterDisplayLine.innerHTML = "0";
-    document.getElementById("div-container").appendChild(counterDisplayLine);
+    //     playerOne = document.createElement("p");
+    //     playerTwo = document.createElement("p");
+    //     draw = document.createElement("p");
+    //     playerOneScore = document.createElement("p");
+    //     playerTwoScore = document.createElement("p");
+    //     drawScore = document.createElement("p");
+    //     startGame = document.createElement("p");
+    //     forfeitGame = document.createElement("p");
+    //     resetGame = document.createElement("p");
 
     counterDisplayWin.id = "display-win";
-    counterDisplayWin.style = "position: relative";
     counterDisplayWin.innerHTML = "N/A";
+    counterDisplayWin.style.color = "black";
     document.getElementById("div-container").appendChild(counterDisplayWin);
 }
 
@@ -203,36 +205,34 @@ function generateCounterDisplay() {
 
 function mouseClickCounter() {
     counterForXO++;
-    document.getElementById("display-counter").innerHTML = counterForXO;
+    // document.getElementById("display-counter").innerHTML = counterForXO;
 }
 
 // ***** ------------------------ **** ------------------------ ***** //
-// *** Checking for Result *** //
+                    // *** Checking for Result *** //
 // ***** ------------------------ **** ------------------------ ***** //
 
 function loopToCheckStatus() {
     for (var i in trackerX) {
-        // console.log(trackerX[i]);
         if (trackerX[i] == 3) {
-            document.getElementById("display-win").innerHTML = "X Wins";
+            document.getElementById("display-win").innerHTML = "Player 1 Wins";
+            document.getElementById("display-win").style.color = "brown";
             loopToDisableClick();
         }
     }
 
     for (var j in trackerO) {
-        // console.log(trackerO[j]);
         if (trackerO[j] == 3) {
-            document.getElementById("display-win").innerHTML = "O Wins";
+            document.getElementById("display-win").innerHTML = "Player 2 Wins";
+            document.getElementById("display-win").style.color = "brown";
             loopToDisableClick();
         }
     }
     
     if (boxesClicked == 9 && document.getElementById("display-win").innerHTML == "N/A") {
         document.getElementById("display-win").innerHTML = "Draw";
+        document.getElementById("display-win").style.color = "brown";
     }
-
-    // console.log(trackerX);
-    // console.log(trackerO);
 }
 
 // ***** ------------------------ **** ------------------------ ***** //
@@ -241,7 +241,16 @@ function loopToCheckStatus() {
 
 function loopToDisableClick() {
     for (var k = 1; k <= idTracker.length; k++) {
-        console.log(k);
         document.getElementById(String("box" + k)).disabled = true;
     }
 }
+
+// ***** ------------------------ **** ------------------------ ***** //
+                    // ***** DRAW CANVAS TEXT ***** //
+// ***** ------------------------ **** ------------------------ ***** //
+
+ctxCanvasTitle.font = "italic 70px Arial";
+ctxCanvasTitle.fillStyle = "grey";
+ctxCanvasTitle.textAlign = "center";
+ctxCanvasTitle.fillText("Tic-Tac-Toe", titleCanvas.width / 2, titleCanvas.height / 1.2);
+
