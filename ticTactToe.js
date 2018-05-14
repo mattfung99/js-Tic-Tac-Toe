@@ -217,12 +217,18 @@ function loopToCheckStatus() {
             document.getElementById("display-win").innerHTML = "X Wins";
         }
     }
+
     for (var j in trackerO) {
         console.log(trackerO[j]);
         if (trackerO[j] == 3) {
             document.getElementById("display-win").innerHTML = "O Wins";
         }
     }
+    
+    if (boxesClicked = 9 && document.getElementById("display-win").innerHTML == "N/A") {
+        document.getElementById("display-win").innerHTML = "Draw";
+    }
+
     console.log(trackerX);
     console.log(trackerO);
 }
