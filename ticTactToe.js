@@ -61,7 +61,7 @@ function generateBoxes() {
     box.style = "background: beige; cursor: pointer; height: 150px; margin-bottom: 20px; outline: 0; text-align: center; width: 150px";
     box.addEventListener("click", function () {
         mouseClickCounter();
-        console.log(box.id);
+        // console.log(box.id);
         switch (counterForXO) {
             case 1:
                 document.getElementById(box.id).innerHTML = "X";
@@ -207,28 +207,41 @@ function mouseClickCounter() {
 }
 
 // ***** ------------------------ **** ------------------------ ***** //
-                    // *** Checking for Result *** //
+// *** Checking for Result *** //
 // ***** ------------------------ **** ------------------------ ***** //
 
 function loopToCheckStatus() {
     for (var i in trackerX) {
-        console.log(trackerX[i]);
+        // console.log(trackerX[i]);
         if (trackerX[i] == 3) {
             document.getElementById("display-win").innerHTML = "X Wins";
+            loopToDisableClick();
         }
     }
 
     for (var j in trackerO) {
-        console.log(trackerO[j]);
+        // console.log(trackerO[j]);
         if (trackerO[j] == 3) {
             document.getElementById("display-win").innerHTML = "O Wins";
+            loopToDisableClick();
         }
     }
     
-    if (boxesClicked = 9 && document.getElementById("display-win").innerHTML == "N/A") {
+    if (boxesClicked == 9 && document.getElementById("display-win").innerHTML == "N/A") {
         document.getElementById("display-win").innerHTML = "Draw";
     }
 
-    console.log(trackerX);
-    console.log(trackerO);
+    // console.log(trackerX);
+    // console.log(trackerO);
+}
+
+// ***** ------------------------ **** ------------------------ ***** //
+                    // * Disable Mouse Clicking * //
+// ***** ------------------------ **** ------------------------ ***** //
+
+function loopToDisableClick() {
+    for (var k = 1; k <= idTracker.length; k++) {
+        console.log(k);
+        document.getElementById(String("box" + k)).disabled = true;
+    }
 }
