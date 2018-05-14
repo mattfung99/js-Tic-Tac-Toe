@@ -1,3 +1,7 @@
+// ***** ------------------------ **** ------------------------ ***** //
+                    // ***** GLOBAL VARIABLES ***** //
+// ***** ------------------------ **** ------------------------ ***** //
+
 var attachClass,
     boxesClicked = 0,
     counterForXO = 0,
@@ -27,10 +31,18 @@ var trackerX = [
     xDiagonal357 = 0,
 ];
 
+// ***** ------------------------ **** ------------------------ ***** //
+                    // *********** CODE *********** //
+// ***** ------------------------ **** ------------------------ ***** //
+
 flexContainer = document.getElementsByTagName("div")[0];
 attachClass = document.createAttribute("class");
 attachClass.value = "flex-container";
 flexContainer.setAttributeNode(attachClass);
+
+// ***** ------------------------ **** ------------------------ ***** //
+                    // ****** Creating Boxes ****** //
+// ***** ------------------------ **** ------------------------ ***** //
 
 function createBoxes() {
     for (var i = 1; i <= numberOfBoxes; i++) {
@@ -38,6 +50,10 @@ function createBoxes() {
     }
     generateCounterDisplay();
 }
+
+// ***** ------------------------ **** ------------------------ ***** //
+                    // ***** Box Functionality **** //
+// ***** ------------------------ **** ------------------------ ***** //
 
 function generateBoxes() {
     var box = document.createElement("button");
@@ -159,6 +175,10 @@ function generateBoxes() {
     idTracker.push(box);
 }
 
+// ***** ------------------------ **** ------------------------ ***** //
+                    // *** Generating Scoreboard ** //
+// ***** ------------------------ **** ------------------------ ***** //
+
 function generateCounterDisplay() {
     var counterDisplayDiv = document.createElement("div");
     var counterDisplayLine = document.createElement("p");
@@ -177,10 +197,18 @@ function generateCounterDisplay() {
     document.getElementById("div-container").appendChild(counterDisplayWin);
 }
 
+// ***** ------------------------ **** ------------------------ ***** //
+                    // ****** Keeping Track ****** //
+// ***** ------------------------ **** ------------------------ ***** //
+
 function mouseClickCounter() {
     counterForXO++;
     document.getElementById("display-counter").innerHTML = counterForXO;
 }
+
+// ***** ------------------------ **** ------------------------ ***** //
+                    // *** Checking for Result *** //
+// ***** ------------------------ **** ------------------------ ***** //
 
 function loopToCheckStatus() {
     for (var i in trackerX) {

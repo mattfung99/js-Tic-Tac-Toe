@@ -2,9 +2,13 @@
 /**
   * STYLES
   *
-  * Index
+  * For Gamepage
   *
+  * - body, html
+  * - display-counter
   * - div-container
+  * - flex-container
+  * - square-details
   *
   */
 /* // ***** ------------------------ **** ------------------------ ***** // */
@@ -39,3 +43,5 @@ body, html {
     text-align: center;
     width: 150px;
 }
+
+/* // ***** ------------------------ **** ------------------------ ***** // */
