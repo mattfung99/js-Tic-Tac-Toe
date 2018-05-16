@@ -39,7 +39,7 @@ var titleCanvas = document.getElementById("canvas-title"),
                     // *********** CODE *********** //
 // ***** ------------------------ **** ------------------------ ***** //
 
-flexContainer = document.getElementsByTagName("div")[2];
+flexContainer = document.getElementsByTagName("div")[5];
 attachClassFC = document.createAttribute("class");
 attachClassFC.value = "flex-container";
 flexContainer.setAttributeNode(attachClassFC);
@@ -62,7 +62,7 @@ function createWebpage() {
 function generateBoxes() {
     var box = document.createElement("button");
     box.id = "box" + parseInt(idTracker.length + 1);
-    box.style = "background: beige; cursor: pointer; font-size: 50px; height: 150px; margin-bottom: 20px; outline: 0; text-align: center; width: 150px";
+    box.style = "background: #2c4266; color: brown; cursor: pointer; font-size: 50px; height: 150px; margin-bottom: 20px; outline: 0; text-align: center; width: 150px";
     box.addEventListener("click", function () {
         mouseClickCounter();
         // console.log(box.id);
@@ -182,21 +182,57 @@ function generateBoxes() {
 // ***** ------------------------ **** ------------------------ ***** //
 
 function generateScoreboard() {
-    var counterDisplayWin = document.createElement("p");
-    //     playerOne = document.createElement("p");
-    //     playerTwo = document.createElement("p");
-    //     draw = document.createElement("p");
-    //     playerOneScore = document.createElement("p");
-    //     playerTwoScore = document.createElement("p");
-    //     drawScore = document.createElement("p");
-    //     startGame = document.createElement("p");
-    //     forfeitGame = document.createElement("p");
-    //     resetGame = document.createElement("p");
+    var counterDisplayWin = document.createElement("p"),
+        playerOne = document.createElement("p"),
+        playerTwo = document.createElement("p"),
+        draw = document.createElement("p"),
+        playerOneScore = document.createElement("p"),
+        playerTwoScore = document.createElement("p"),
+        drawScore = document.createElement("p"),
+        startGame = document.createElement("button"),
+        forfeitGame = document.createElement("button"),
+        resetGame = document.createElement("button");
 
     counterDisplayWin.id = "display-win";
     counterDisplayWin.innerHTML = "N/A";
     counterDisplayWin.style.color = "black";
-    document.getElementById("div-container").appendChild(counterDisplayWin);
+    document.getElementById("div-container-row-one").appendChild(counterDisplayWin);
+
+    playerOne.id = "player-one";
+    playerOne.innerHTML = "Player One";
+    document.getElementById("div-container-row-two").appendChild(playerOne);
+
+    playerTwo.id = "player-two";
+    playerTwo.innerHTML = "Player Two";
+    document.getElementById("div-container-row-two").appendChild(playerTwo);
+
+    draw.id = "draw";
+    draw.innerHTML = "Draw";
+    document.getElementById("div-container-row-two").appendChild(draw);
+
+    playerOneScore.id = "player-one-score";
+    playerOneScore.innerHTML = "0";
+    document.getElementById("div-container-row-three").appendChild(playerOneScore);
+
+    playerTwoScore.id = "player-two-score";
+    playerTwoScore.innerHTML = "0";
+    document.getElementById("div-container-row-three").appendChild(playerTwoScore);
+
+    drawScore.id = "draw-score";
+    drawScore.innerHTML = "0";
+    document.getElementById("div-container-row-three").appendChild(drawScore);
+
+    startGame.id = "start-game";
+    startGame.innerHTML = "Start Game";
+    document.getElementById("div-container-row-four").appendChild(startGame);
+    
+    forfeitGame.id = "forfeit-game";
+    forfeitGame.innerHTML = "Forfeit";
+    document.getElementById("div-container-row-four").appendChild(forfeitGame);
+
+    resetGame.id = "reset-game";
+    resetGame.innerHTML = "Reset";
+    document.getElementById("div-container-row-four").appendChild(resetGame);
 }
 
 // ***** ------------------------ **** ------------------------ ***** //
@@ -242,6 +278,7 @@ function loopToCheckStatus() {
 function loopToDisableClick() {
     for (var k = 1; k <= idTracker.length; k++) {
         document.getElementById(String("box" + k)).disabled = true;
+        document.getElementById(String("box" + k)).style.cursor = "default";
     }
 }
 
@@ -250,7 +287,7 @@ function loopToDisableClick() {
 // ***** ------------------------ **** ------------------------ ***** //
 
 ctxCanvasTitle.font = "italic 70px Arial";
-ctxCanvasTitle.fillStyle = "grey";
+ctxCanvasTitle.fillStyle = "brown";
 ctxCanvasTitle.textAlign = "center";
 ctxCanvasTitle.fillText("Tic-Tac-Toe", titleCanvas.width / 2, titleCanvas.height / 1.2);
 

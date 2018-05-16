@@ -16,6 +16,7 @@
 /* // ***** ------------------------ **** ------------------------ ***** // */
 
 body, html {
+    background: black;
     min-width: 510px;
 }
 
@@ -27,30 +28,6 @@ body, html {
 #display-counter {
     position: relative;
 }
-
-/* .display-score-row-1 {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px auto 0 auto;
-    max-width: 510px;
-}
-
-.display-score-row-2 {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px auto 0 auto;
-    max-width: 510px;
-}
-
-.display-score-row-3 {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px auto 0 auto;
-    max-width: 510px;
-} */
 
 #display-win {
     background: black;
@@ -65,9 +42,59 @@ body, html {
     width: 510px;
 }
 
-#div-container {
+#div-container-row-one {
     text-align: center;
     width: 100%;
+}
+
+#div-container-row-two {
+    background: #2c4266;
+    border: 2px solid grey;
+    color: brown;
+    justify-content: space-around;
+    margin: -2px auto -4px auto;
+}
+
+#div-container-row-three {
+    background: black;
+    border: 2px solid grey;
+    color: brown;
+    justify-content: space-around;
+    margin: 1px auto -2px auto;
+}
+
+#div-container-row-four {
+    justify-content: space-between;
+    margin: 1px auto 30px auto;
+}
+
+.div-container-template {
+    align-items: center;
+    display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    flex-wrap: wrap;
+    height: 25px;
+    max-width: 510px;
+}
+
+.div-developer-name {
+    text-align: right;
+    width: 100%;
+}
+
+#draw {
+    display: inline-block;
+    flex: 1;
+    order: 2;
+    text-align: center;
+}
+
+#draw-score {
+    display: inline-block;
+    flex: 1;
+    order: 2;
+    text-align: center;
 }
 
 .flex-container {
@@ -80,12 +107,83 @@ body, html {
     max-width: 510px;
 }
 
-.square-details {
-    background: beige;
-    height: 150px;
-    margin-bottom: 20px;
+#forfeit-game {
+    background: #2c4266;
+    border: 2px solid grey;
+    cursor: pointer;
+    color: brown;
+    display: inline-block;
+    flex: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    order: 2;
+    outline: 0;
     text-align: center;
-    width: 150px;
+}
+
+#matt-fung {
+    color: brown;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 8px; 
+}
+
+#player-one {
+    display: inline-block;
+    flex: 1;
+    order: 1;
+    text-align: center;
+}
+
+#player-one-score {
+    display: inline-block;
+    flex: 1;
+    order: 1;
+    text-align: center;
+}
+
+#player-two {
+    display: inline-block;
+    flex: 1;
+    order: 3;
+    text-align: center;
+}
+
+#player-two-score {
+    display: inline-block;
+    flex: 1;
+    order: 3;
+    text-align: center;
+}
+
+#reset-game {
+    background: #2c4266;
+    border: 2px solid grey;
+    cursor: pointer;
+    color: brown;
+    display: inline-block;
+    flex: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    margin-left: 5px;
+    order: 3;
+    outline: 0;
+    text-align: center;
+}
+
+#start-game {
+    background: #2c4266;
+    border: 2px solid grey;
+    color: brown;
+    cursor: pointer;
+    display: inline-block;
+    flex: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    margin-right: 5px;
+    order: 1;
+    outline: 0;
+    text-align: center;
 }
 
 /* // ***** ------------------------ **** ------------------------ ***** // */
