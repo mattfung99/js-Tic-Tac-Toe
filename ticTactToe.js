@@ -7,6 +7,7 @@ var attachClassFC,
     counterForXO = 0,
     displayScore,
     flexContainer,
+    forfeiter = "X",
     idTracker = [],
     numberOfBoxes = 9;
 
@@ -67,6 +68,7 @@ function createWebpage() {
     for (var i = 1; i <= numberOfBoxes; i++) {
         generateBoxes();
     }
+    console.log(forfeiter);
     generateScoreboard();
     loopToDisableClick();
     stateLoad();
@@ -87,6 +89,7 @@ function generateBoxes() {
                 document.getElementById(box.id).innerHTML = "X";
                 document.getElementById(box.id).disabled = true;
                 boxesClicked++;
+                forfeiter = "O";
                 switch (box.id) {
                     case "box1":
                         trackerX[0]++;
@@ -139,6 +142,7 @@ function generateBoxes() {
                 document.getElementById(box.id).innerHTML = "O";
                 document.getElementById(box.id).disabled = true;
                 boxesClicked++;
+                forfeiter = "X";
                 switch (box.id) {
                     case "box1":
                         trackerO[0]++;
@@ -324,11 +328,19 @@ ctxCanvasTitle.fillText("Tic-Tac-Toe", titleCanvas.width / 2, titleCanvas.height
 // ***** ------------------------ **** ------------------------ ***** //
 
 function optionForfeit() {
-    // loopToEnableClick();
-    // document.getElementById("forfeit-game").disabled = false;
-    // document.getElementById("forfeit-game").style.cursor = "pointer";
-    // document.getElementById("start-game").disabled = true;
-    // document.getElementById("start-game").style.cursor = "default";
+    if (forfeiter == "X") {
+        scorePlayer2++;
+        document.getElementById("player-two-score").innerHTML = scorePlayer2;
+        loopToDisableClick();
+        stateReset();   
+    }
+
+    else if (forfeiter == "O") {
+        scorePlayer1++;
+        document.getElementById("player-one-score").innerHTML = scorePlayer1;
+        loopToDisableClick();
+        stateReset();
+    }
 }
 
 // ***** ------------------------ **** ------------------------ ***** //
@@ -342,6 +354,7 @@ function optionReset() {
 
     boxesClicked = 0,
     counterForXO = 0,
+    forfeiter = "X";
 
     trackerO = [
         oHorizontal123 = 0,
@@ -366,8 +379,12 @@ function optionReset() {
     ];
     
     document.getElementById("reset-game").disabled = true;
+    document.getElementById("reset-game").style.background = "#121b2b";
+    document.getElementById("reset-game").style.color = "#492d27";
     document.getElementById("reset-game").style.cursor = "default";
     document.getElementById("start-game").disabled = false;
+    document.getElementById("start-game").style.background = "#2c4266";
+    document.getElementById("start-game").style.color = "brown";
     document.getElementById("start-game").style.cursor = "pointer";
 }
 
@@ -379,8 +396,12 @@ function optionReset() {
 function optionStart() {
     loopToEnableClick();
     document.getElementById("forfeit-game").disabled = false;
+    document.getElementById("forfeit-game").style.background = "#2c4266";
+    document.getElementById("forfeit-game").style.color = "brown";
     document.getElementById("forfeit-game").style.cursor = "pointer";
     document.getElementById("start-game").disabled = true;
+    document.getElementById("start-game").style.background = "#121b2b";
+    document.getElementById("start-game").style.color = "#492d27";
     document.getElementById("start-game").style.cursor = "default";
 }
 
@@ -390,8 +411,12 @@ function optionStart() {
 
 function stateLoad() {
     document.getElementById("forfeit-game").disabled = true;
+    document.getElementById("forfeit-game").style.background = "#121b2b";
+    document.getElementById("forfeit-game").style.color = "#492d27";
     document.getElementById("forfeit-game").style.cursor = "default";
     document.getElementById("reset-game").disabled = true;
+    document.getElementById("reset-game").style.background = "#121b2b";
+    document.getElementById("reset-game").style.color = "#492d27";
     document.getElementById("reset-game").style.cursor = "default";
 }
 
@@ -401,7 +426,11 @@ function stateLoad() {
 
 function stateReset() {
     document.getElementById("reset-game").disabled = false;
+    document.getElementById("reset-game").style.background = "#2c4266";
+    document.getElementById("reset-game").style.color = "brown";
     document.getElementById("reset-game").style.cursor = "pointer";
     document.getElementById("forfeit-game").disabled = true;
+    document.getElementById("forfeit-game").style.background = "#121b2b";
+    document.getElementById("forfeit-game").style.color = "#492d27";
     document.getElementById("forfeit-game").style.cursor = "default";
 }
