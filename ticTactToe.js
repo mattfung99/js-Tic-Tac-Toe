@@ -2,7 +2,7 @@
                     // ***** GLOBAL VARIABLES ***** //
 // ***** ------------------------ **** ------------------------ ***** //
 
-var attachClassFC,
+var attachClass,
     boxesClicked = 0,
     counterForXO = 0,
     displayScore,
@@ -42,7 +42,10 @@ var counterDisplayWin = document.createElement("p"),
     drawScore = document.createElement("p"),
     startGame = document.createElement("button"),
     forfeitGame = document.createElement("button"),
-    resetGame = document.createElement("button");
+    resetGame = document.createElement("button"),
+    developerNameContainer = document.createElement("div"),
+    hyperlink = document.createElement("a"),
+    developerName = document.createElement("p");
 
 var titleCanvas = document.getElementById("canvas-title"),
     ctxCanvasTitle = titleCanvas.getContext("2d");
@@ -56,9 +59,9 @@ var scorePlayer1 = 0,
 // ***** ------------------------ **** ------------------------ ***** //
 
 flexContainer = document.getElementsByTagName("div")[5];
-attachClassFC = document.createAttribute("class");
-attachClassFC.value = "flex-container";
-flexContainer.setAttributeNode(attachClassFC);
+attachClass = document.createAttribute("class");
+attachClass.value = "flex-container";
+flexContainer.setAttributeNode(attachClass);
 
 // ***** ------------------------ **** ------------------------ ***** //
                     // ****** Creating Boxes ****** //
@@ -68,7 +71,6 @@ function createWebpage() {
     for (var i = 1; i <= numberOfBoxes; i++) {
         generateBoxes();
     }
-    console.log(forfeiter);
     generateScoreboard();
     loopToDisableClick();
     stateLoad();
@@ -245,6 +247,14 @@ function generateScoreboard() {
     resetGame.innerHTML = "Reset";
     resetGame.addEventListener('click', optionReset);
     document.getElementById("div-container-row-four").appendChild(resetGame);
+
+    developerNameContainer.id = "div-developer-name";
+    document.getElementById("flex-container").appendChild(developerNameContainer);
+
+    hyperlink.href = "https://github.com/mattfung99";
+    hyperlink.id = "matt-fung";
+    hyperlink.innerHTML = "// Matt Fung 2018 // Ver 1.0 //";
+    document.getElementById("div-developer-name").appendChild(hyperlink);
 }
 
 // ***** ------------------------ **** ------------------------ ***** //
@@ -378,6 +388,8 @@ function optionReset() {
         xDiagonal357 = 0,
     ];
     
+    counterDisplayWin.innerHTML = "N/A";
+    counterDisplayWin.style.color = "black";
     document.getElementById("reset-game").disabled = true;
     document.getElementById("reset-game").style.background = "#121b2b";
     document.getElementById("reset-game").style.color = "#492d27";

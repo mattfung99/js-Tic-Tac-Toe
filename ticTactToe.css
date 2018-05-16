@@ -78,7 +78,7 @@ body, html {
     max-width: 510px;
 }
 
-.div-developer-name {
+#div-developer-name {
     text-align: right;
     width: 100%;
 }
