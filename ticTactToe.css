@@ -65,7 +65,7 @@ body, html {
 
 #div-container-row-four {
     justify-content: space-between;
-    margin: 1px auto 30px auto;
+    margin: 0 auto 30px auto;
 }
 
 .div-container-template {
@@ -109,7 +109,6 @@ body, html {
 
 #forfeit-game {
     background: #2c4266;
-    border: 2px solid grey;
     cursor: pointer;
     color: brown;
     display: inline-block;
@@ -158,7 +157,6 @@ body, html {
 
 #reset-game {
     background: #2c4266;
-    border: 2px solid grey;
     cursor: pointer;
     color: brown;
     display: inline-block;
@@ -173,7 +171,6 @@ body, html {
 
 #start-game {
     background: #2c4266;
-    border: 2px solid grey;
     color: brown;
     cursor: pointer;
     display: inline-block;
