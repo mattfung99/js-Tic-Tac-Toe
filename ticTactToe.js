@@ -54,9 +54,26 @@ var scorePlayer1 = 0,
     scorePlayer2 = 0,
     scoreDraw = 0;
 
+var limitedText = document.getElementsByClassName("form-has-character-limit"),
+    charactersLeft = document.getElementsByClassName("character-count");
+
+var inputBoxes = [
+    (limitedText[0].getElementsByClassName("form-input"))[0],
+    (limitedText[1].getElementsByClassName("form-input"))[0],
+];
+
+var popup = document.getElementById("popupBackground"),
+    saveTask = document.getElementById("save");
+
 // ***** ------------------------ **** ------------------------ ***** //
                     // *********** CODE *********** //
 // ***** ------------------------ **** ------------------------ ***** //
+
+function loadFunctions() {
+    createWebpage();
+    var popup = document.getElementById("popupBackground");
+    popup.style.display = "block";
+}
 
 flexContainer = document.getElementsByTagName("div")[5];
 attachClass = document.createAttribute("class");
@@ -83,7 +100,7 @@ function createWebpage() {
 function generateBoxes() {
     var box = document.createElement("button");
     box.id = "box" + parseInt(idTracker.length + 1);
-    box.style = "background: #2c4266; color: brown; cursor: pointer; font-size: 50px; height: 150px; margin-bottom: 20px; outline: 0; text-align: center; width: 150px";
+    box.style = "background: #2c4266; color: brown; cursor: pointer; font-size: 50px; height: 150px; margin: 10px 0 10px 0; outline: 0; text-align: center; width: 150px";
     box.addEventListener("click", function () {
         mouseClickCounter();
         switch (counterForXO) {
@@ -400,7 +417,6 @@ function optionReset() {
     document.getElementById("start-game").style.cursor = "pointer";
 }
 
-
 // ***** ------------------------ **** ------------------------ ***** //
                     // ******* Start Button ******* //
 // ***** ------------------------ **** ------------------------ ***** //
@@ -445,4 +461,42 @@ function stateReset() {
     document.getElementById("forfeit-game").style.background = "#121b2b";
     document.getElementById("forfeit-game").style.color = "#492d27";
     document.getElementById("forfeit-game").style.cursor = "default";
+}
+
+// ***** ------------------------ **** ------------------------ ***** //
+                    // ******* State: Reset ******* //
+// ***** ------------------------ **** ------------------------ ***** //
+
+function collectiveReset() {
+    resetCount(charactersLeft[0], inputBoxes[0], 10);
+    resetCount(charactersLeft[1], inputBoxes[1], 10);
+}
+
+function collectiveUpdate() {
+    inputBoxes[0].addEventListener("input", function () {
+        updateCount(charactersLeft[0], inputBoxes[0], 10);
+    });
+    inputBoxes[1].addEventListener("input", function () {
+        updateCount(charactersLeft[1], inputBoxes[1], 10);
+    });
+}
+
+function updateCount(output, read, max) {
+    output.textContent = max - parseInt(read.value.length);
+}
+
+// saveTask.onclick = function () {
+//     collectiveUpdate();
+//     // copyFields();
+//     collectiveReset();
+//     emptyFields();
+//     popup.style.display = "none";
+// }
+
+window.onclick = function (event) {
+    if (event.target == popup) {
+        collectiveUpdate();
+
+        popup.style.display = "none";
+    }
 }

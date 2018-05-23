@@ -13,7 +13,7 @@
             <link rel="icon" type="image/x-icon" href="hashtag.png">
         </head>
 
-        <body onload="createWebpage()">
+        <body onload="loadFunctions()">
             <div id="canvas-container">
                 <canvas height="85" id="canvas-title" width="510"></canvas>
             </div>
@@ -24,14 +24,25 @@
             <div class="div-container-template" id="div-container-row-four"></div>
             <div id="flex-container"></div>
 
+            <div class="popup-Background" id="popupBackground">
+                <div class="form-box">
+                    <div class="form form-has-character-limit">
+                        <label class="form-label" for="input-name">Player 1</label>
+                        <div class="text-help character-count">10</div>
+                        <input type="text" maxlength="10" class="form-input" id="input-name">
+                        <small class="text-help">Maximum of 10 characters.</small>
+                    </div>
+            
+                    <div class="form form-has-character-limit">
+                        <label class="form-label" for="input-name">Player 2</label>
+                        <div class="text-help character-count">10</div>
+                        <input type="text" maxlength="10" class="form-input" id="input-name">
+                        <small class="text-help">Maximum of 10 characters.</small>
+                    </div>
+                </div>
+            </div>
+
             <script src="ticTactToe.js"></script>
         </body>
     </html>
 
-    <!-- <div class="div-developer-name">
-        <a href="https://github.com/mattfung99" style="text-decoration: none">
-            <p id="matt-fung">
-                // Matt Fung 2018 //
-            </p>
-        </a>    
-    </div> -->

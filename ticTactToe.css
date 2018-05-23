@@ -25,6 +25,71 @@ body, html {
     width: 100%;
 }
 
+.character-count .form--has-character-limit {
+    margin: 0;
+    padding: 10px 11px;
+    pointer-events: none;
+    position: absolute;
+    right: 1px;
+}
+
+.form {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.form-box {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    display: inline-block;
+    margin-left: 36.5%;
+    min-width: 25%;
+    padding: 20px 20px 25px;
+    position: relative;
+    text-align: left;
+    top: 13%;
+    width: 25%;
+}
+
+.form-input {
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    color: #575757;
+    display: inline-block;
+    font: inherit;
+    font-weight: 400;
+    margin: 0;
+    outline: none;
+    padding: 7px 10px;
+    min-width: 94%;
+}
+
+.form-input .form-has-character-limit {
+    padding-right: 40px;
+}
+
+.form-input {
+    background-position: 10px 50%;
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+}
+
+.form-label {
+    color: #575757;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4em;
+    min-width: 94%;
+}
+
+.form-label:after {
+    color: #686868;
+    font-size: 0.85rem;
+    font-style: italic;
+    font-weight: 400;
+    padding-left: 5px;
+}
+
 #display-counter {
     position: relative;
 }
@@ -65,7 +130,7 @@ body, html {
 
 #div-container-row-four {
     justify-content: space-between;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 10px auto;
 }
 
 .div-container-template {
@@ -155,6 +220,19 @@ body, html {
     text-align: center;
 }
 
+.popup-Background {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
 #reset-game {
     background: #2c4266;
     cursor: pointer;
@@ -182,5 +260,14 @@ body, html {
     outline: 0;
     text-align: center;
 }
+
+.text-help {
+    color: #686868;
+    display: block;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-top: 6px;
+}
+
 
 /* // ***** ------------------------ **** ------------------------ ***** // */
