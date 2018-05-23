@@ -75,6 +75,7 @@ function loadFunctions() {
     popup.style.display = "block";
 }
 
+collectiveUpdate();
 flexContainer = document.getElementsByTagName("div")[5];
 attachClass = document.createAttribute("class");
 attachClass.value = "flex-container";
@@ -463,10 +464,6 @@ function stateReset() {
     document.getElementById("forfeit-game").style.cursor = "default";
 }
 
-// ***** ------------------------ **** ------------------------ ***** //
-                    // ******* State: Reset ******* //
-// ***** ------------------------ **** ------------------------ ***** //
-
 function collectiveReset() {
     resetCount(charactersLeft[0], inputBoxes[0], 10);
     resetCount(charactersLeft[1], inputBoxes[1], 10);
@@ -480,6 +477,10 @@ function collectiveUpdate() {
         updateCount(charactersLeft[1], inputBoxes[1], 10);
     });
 }
+
+// ***** ------------------------ **** ------------------------ ***** //
+                    // ***** Name Form Popup ****** //
+// ***** ------------------------ **** ------------------------ ***** //
 
 function updateCount(output, read, max) {
     output.textContent = max - parseInt(read.value.length);
@@ -496,7 +497,6 @@ function updateCount(output, read, max) {
 window.onclick = function (event) {
     if (event.target == popup) {
         collectiveUpdate();
-
         popup.style.display = "none";
     }
 }
