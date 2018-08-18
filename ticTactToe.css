@@ -157,7 +157,7 @@ body, html {
 }
 
 .form-box {
-    background: #2c4266;
+    background: black;
     border: 1px solid #bbb;
     display: inline-block;
     margin-left: 36.5%;
@@ -276,6 +276,17 @@ body, html {
     justify-content: space-around;
     margin: 10px auto 0 auto;
     max-width: 510px;
+}
+
+#save {
+    background: #2c4266;
+    color: brown;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    outline: 0;
+    text-align: center;
 }
 
 #start-game {
