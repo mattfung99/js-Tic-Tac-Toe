@@ -6,11 +6,33 @@
   *
   * - body, html
   * - canvas-container
+  * - character-count
   * - display-counter
   * - display-win
-  * - div-container
+  * - div-container-row-one
+  * - div-container-row-two
+  * - div-container-row-three
+  * - div-container-row-four
+  * - div-container-name  
+  * - div-container-template
+  * - draw
+  * - draw-score
   * - flex-container
-  * - square-details
+  * - forfeit-game
+  * - form
+  * - form-box
+  * - form-input
+  * - form-label
+  * - matt-fung
+  * - player-one
+  * - player-one-score
+  * - player-two
+  * - player-two-score
+  * - popup-background
+  * - reset-game
+  * - save
+  * - start-game
+  * - text-help
   *
   */
 /* // ***** ------------------------ **** ------------------------ ***** // */
@@ -31,6 +53,101 @@ body, html {
     pointer-events: none;
     position: absolute;
     right: 1px;
+}
+
+#display-counter {
+    position: relative;
+}
+
+#display-win {
+    background: black;
+    border: 2px solid grey;
+    display: inline-block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    height: 25px;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    width: 510px;
+}
+
+#div-container-row-one {
+    text-align: center;
+    width: 100%;
+}
+
+#div-container-row-two {
+    background: #2c4266;
+    border: 2px solid grey;
+    color: brown;
+    justify-content: space-around;
+    margin: -2px auto -4px auto;
+}
+
+#div-container-row-three {
+    background: black;
+    border: 2px solid grey;
+    color: brown;
+    justify-content: space-around;
+    margin: 1px auto -2px auto;
+}
+
+#div-container-row-four {
+    justify-content: space-between;
+    margin: 0 auto 10px auto;
+}
+
+#div-developer-name {
+    text-align: right;
+    width: 100%;
+}
+
+.div-container-template {
+    align-items: center;
+    display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    flex-wrap: wrap;
+    height: 25px;
+    max-width: 510px;
+}
+
+#draw {
+    display: inline-block;
+    flex: 1;
+    order: 2;
+    text-align: center;
+}
+
+#draw-score {
+    display: inline-block;
+    flex: 1;
+    order: 2;
+    text-align: center;
+}
+
+.flex-container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 151px;
+    justify-content: space-around;
+    margin: 10px auto 0 auto;
+    max-width: 510px;
+}
+
+#forfeit-game {
+    background: #2c4266;
+    cursor: pointer;
+    color: brown;
+    display: inline-block;
+    flex: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    order: 2;
+    outline: 0;
+    text-align: center;
 }
 
 .form {
@@ -90,101 +207,6 @@ body, html {
     padding-left: 5px;
 }
 
-#display-counter {
-    position: relative;
-}
-
-#display-win {
-    background: black;
-    border: 2px solid grey;
-    display: inline-block;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    height: 25px;
-    margin: 0;
-    position: relative;
-    text-align: center;
-    width: 510px;
-}
-
-#div-container-row-one {
-    text-align: center;
-    width: 100%;
-}
-
-#div-container-row-two {
-    background: #2c4266;
-    border: 2px solid grey;
-    color: brown;
-    justify-content: space-around;
-    margin: -2px auto -4px auto;
-}
-
-#div-container-row-three {
-    background: black;
-    border: 2px solid grey;
-    color: brown;
-    justify-content: space-around;
-    margin: 1px auto -2px auto;
-}
-
-#div-container-row-four {
-    justify-content: space-between;
-    margin: 0 auto 10px auto;
-}
-
-.div-container-template {
-    align-items: center;
-    display: flex;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    flex-wrap: wrap;
-    height: 25px;
-    max-width: 510px;
-}
-
-#div-developer-name {
-    text-align: right;
-    width: 100%;
-}
-
-#draw {
-    display: inline-block;
-    flex: 1;
-    order: 2;
-    text-align: center;
-}
-
-#draw-score {
-    display: inline-block;
-    flex: 1;
-    order: 2;
-    text-align: center;
-}
-
-.flex-container {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    height: 151px;
-    justify-content: space-around;
-    margin: 10px auto 0 auto;
-    max-width: 510px;
-}
-
-#forfeit-game {
-    background: #2c4266;
-    cursor: pointer;
-    color: brown;
-    display: inline-block;
-    flex: 1;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 15px;
-    order: 2;
-    outline: 0;
-    text-align: center;
-}
-
 #matt-fung {
     color: brown;
     cursor: pointer;
@@ -220,7 +242,7 @@ body, html {
     text-align: center;
 }
 
-.popup-Background {
+.popup-background {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.8);
     display: none;
@@ -277,6 +299,5 @@ body, html {
     margin-top: 6px;
     text-align: right;
 }
-
 
 /* // ***** ------------------------ **** ------------------------ ***** // */
