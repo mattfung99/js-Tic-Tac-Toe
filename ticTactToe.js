@@ -486,17 +486,23 @@ function updateCount(output, read, max) {
     output.textContent = max - parseInt(read.value.length);
 }
 
-// saveTask.onclick = function () {
-//     collectiveUpdate();
-//     // copyFields();
-//     collectiveReset();
-//     emptyFields();
-//     popup.style.display = "none";
-// }
-
-window.onclick = function (event) {
-    if (event.target == popup) {
-        collectiveUpdate();
-        popup.style.display = "none";
+function updateFields() {
+    if (document.getElementById("input-name-one").value =="") {
+        document.getElementById("player-one").innerHTML = "Player One";
+    }
+    else {
+        document.getElementById("player-one").innerHTML = document.getElementById("input-name-one").value;
+    }
+    if (document.getElementById("input-name-two").value == "") {
+        document.getElementById("player-two").innerHTML = "Player Two";
+    }
+    else {
+        document.getElementById("player-two").innerHTML = document.getElementById("input-name-two").value;
     }
 }
+
+saveTask.onclick = function() {
+    updateFields();
+    popup.style.display = "none";
+}
+

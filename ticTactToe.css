@@ -35,11 +35,12 @@ body, html {
 
 .form {
     display: block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 30px;
 }
 
 .form-box {
-    background-color: #fff;
+    background: #2c4266;
     border: 1px solid #bbb;
     display: inline-block;
     margin-left: 36.5%;
@@ -54,7 +55,7 @@ body, html {
 .form-input {
     border: 1px solid #bbb;
     border-radius: 3px;
-    color: #575757;
+    color: brown;
     display: inline-block;
     font: inherit;
     font-weight: 400;
@@ -75,15 +76,14 @@ body, html {
 }
 
 .form-label {
-    color: #575757;
-    display: block;
+    color: brown;
     font-weight: 600;
     margin-bottom: 0.4em;
     min-width: 94%;
 }
 
 .form-label:after {
-    color: #686868;
+    color: brown;
     font-size: 0.85rem;
     font-style: italic;
     font-weight: 400;
@@ -222,7 +222,7 @@ body, html {
 
 .popup-Background {
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.8);
     display: none;
     height: 100%;
     left: 0;
@@ -247,6 +247,15 @@ body, html {
     text-align: center;
 }
 
+.save {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px auto 0 auto;
+    max-width: 510px;
+}
+
 #start-game {
     background: #2c4266;
     color: brown;
@@ -262,11 +271,11 @@ body, html {
 }
 
 .text-help {
-    color: #686868;
-    display: block;
+    color: brown;;
     font-size: 0.85rem;
     font-style: italic;
     margin-top: 6px;
+    text-align: right;
 }
 
 
